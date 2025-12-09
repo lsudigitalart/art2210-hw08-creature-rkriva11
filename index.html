@@ -9,11 +9,20 @@
     <div class="container">
         <h1>Mardi the Dragon Evolution</h1>
         <div id="evolution-stage">Stage: Baby Dragon</div>
-        <div id="p5-container"></div>
-        <div class="controls">
-            <button id="evolveBtn">Click to Evolve</button>
-            <p id="stage-text">Your dragon is still a baby!</p>
+        <div id="feedingBar">
+            <div id="feedingProgress"></div>
         </div>
+        <div id="feedingCount">Tomatoes: 0/3</div>
+        <div id="p5-container">
+            <img id="explosionEffect" src="https://media.tenor.com/0QryMX5yo2kAAAAj/explosion-minecraft.gif" alt="explosion">
+        </div>
+        <audio id="eatSound" src="SFX/WebkinzCrunch.mp3"></audio>
+        <div class="controls">
+        </div>
+            <div class="food">
+                <img id="tomato" src="Images/tomato.png" alt="tomato" draggable="true">
+                <div class="food-label">Drag tomato to feed</div>
+            </div>
     </div>
     
     <script src="dragon-evolution.js"></script>

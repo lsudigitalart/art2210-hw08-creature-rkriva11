@@ -1,4 +1,4 @@
-// loads dragon image
+
 
 var dragonImg = null;
 var p5Instance = null;
@@ -23,8 +23,19 @@ function setup() {
             p.background(245);
             
             if (dragonImg) {
+               
                 var imgWidth = 300;
-                var imgHeight = 300;
+                if (typeof currentStage !== 'undefined') {
+                    if (currentStage == 'baby') imgWidth = 160;
+                    else if (currentStage == 'teen') imgWidth = 260;
+                    else if (currentStage == 'adult') imgWidth = 320;
+                }
+
+                
+                var imgHeight = imgWidth;
+                if (dragonImg && dragonImg.width) {
+                    imgHeight = (dragonImg.height / dragonImg.width) * imgWidth;
+                }
                 var x = p.width / 2 - imgWidth / 2;
                 var y = p.height / 2 - imgHeight / 2;
                 
@@ -36,7 +47,7 @@ function setup() {
     new p5(sketch);
 }
 
-// Load the dragon image
+
 function loadDragonForStage(p) {
     var imagePath = getDragonImagePath();
     
@@ -45,7 +56,7 @@ function loadDragonForStage(p) {
     });
 }
 
-// Reload the image when the dragon evolves
+
 function reloadDragonImage() {
     if (p5Instance) {
         loadDragonForStage(p5Instance);
